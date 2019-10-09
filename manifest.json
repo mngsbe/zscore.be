@@ -5,8 +5,8 @@
   "theme_color": "#004d99",
   "background_color": "#ffffff",
   "display": "standalone",
-  "Scope": "https://mingusbe.github.io/zscore.be/",
-  "start_url": "/",
+  "Scope": "https://mingusbe.github.io/",
+  "start_url": "zscore.be/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
