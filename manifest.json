@@ -6,7 +6,7 @@
   "background_color": "#ffffff",
   "display": "standalone",
   "Scope": "https://mingusbe.github.io/",
-  "start_url": "zscore.be/",
+  "start_url": "zscore.be/index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
