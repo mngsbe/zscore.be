@@ -26,12 +26,12 @@ const FILES_TO_CACHE = [
   '/',
   '/index.html',
   '/css/style.css',
-  '/js/sw.js',
+  '/service-worker.js',
   '/js/main.js',
   '/js/lmsfuns.js',
+  '/js/install.js',
   '/images/logo/kuleuven.svg',
   '/images/logo/vwvj.svg'
-
 ];
 
 self.addEventListener('install', (evt) => {
