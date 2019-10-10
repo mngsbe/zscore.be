@@ -1,5 +1,5 @@
 // CODELAB: Update cache names any time any of the cached files change.
-let CACHE_NAME = 'zscore.be-v1.3.2';
+let CACHE_NAME = 'zscore.be-v1.3.3';
 
 // CODELAB: Add list of files to cache here.
 let FILES_TO_CACHE = [
