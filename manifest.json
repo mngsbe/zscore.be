@@ -5,8 +5,7 @@
   "theme_color": "#004d99",
   "background_color": "#ffffff",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/index.html",
+  "start_url": "/zscore.be/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
