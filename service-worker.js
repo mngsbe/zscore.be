@@ -51,12 +51,26 @@ self.addEventListener('activate', event => {
   );
 });
 
+// self.addEventListener('fetch', event => {
+//   console.log('[ServiceWorker] will fetch');
+//   event.respondWith(
+//     caches.open(CACHE_NAME).then( cache =>
+//     caches.match(event.request)).then( response => {
+//       return response || fetch(event.request);
+//     })
+//   );
+// });
+
+
+
 self.addEventListener('fetch', event => {
-  console.log('[ServiceWorker] will fetch');
   event.respondWith(
-    caches.open(CACHE_NAME).then( cache =>
-    caches.match(event.request)).then( response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then( response => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
