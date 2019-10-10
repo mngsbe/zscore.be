@@ -37,6 +37,7 @@ self.addEventListener('install', event => {
 
 // Delete unused caches
 self.addEventListener('activate', event => {
+  console.log('[ServiceWorker] about to activate');
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -48,14 +49,13 @@ self.addEventListener('activate', event => {
       );
     })
   );
-  console.log('[ServiceWorker] activated');
 });
 
 self.addEventListener('fetch', event => {
+  console.log('[ServiceWorker] will fetch');
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
   );
-  console.log('[ServiceWorker] fetched');
 });
