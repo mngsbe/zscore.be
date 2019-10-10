@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zscore.be-v1.3.4';
+const CACHE_NAME = 'zscore.be-v1.4';
 const FILES_TO_CACHE = [
   'index.html',
   'css/style.css',
@@ -50,17 +50,3 @@ self.addEventListener('activate', event => {
      })
    );
  });
-
-
-
-// self.addEventListener('fetch', event => {
-//   event.respondWith(
-//     caches.match(event.request).then( response => {
-//         if (response) {
-//           return response;
-//         }
-//         return fetch(event.request);
-//       }
-//     )
-//   );
-// });
