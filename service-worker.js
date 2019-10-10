@@ -1,52 +1,65 @@
-/*
- * @license
- * Your First PWA Codelab (https://g.co/codelabs/pwa)
- * Copyright 2019 Google Inc. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
- */
-
 'use strict';
 
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = 'zscore.be-v1.2';
+const CACHE_NAME = 'zscore.be_v1.3';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/service-worker.js',
-  '/js/main.js',
-  '/js/lmsfuns.js',
-  '/js/install.js',
-  '/images/logo/kuleuven.svg',
-  '/images/logo/vwvj.svg'
+  '.',
+  'index.html',
+  'css/style.css',
+  'service-worker.js',
+  'js/main.js',
+  'js/lmsfuns.js',
+  'js/install.js',
+  'images/logo/kuleuven.svg',
+  'images/logo/vwvj.svg'
 ];
 
-self.addEventListener('install', (evt) => {
+self.addEventListener('install', (event) => {
   console.log('[ServiceWorker] Install');
-  // CODELAB: Precache static resources here.
   self.skipWaiting();
+  // CODELAB: Precache static resources here.
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+    .then(function(cache) {
+      return cache.addAll(FILES_TO_CACHE);
+    })
+  );    
 });
 
-self.addEventListener('activate', (evt) => {
+self.addEventListener('activate', (event) => {
   console.log('[ServiceWorker] Activate');
   // CODELAB: Remove previous cached data from disk.
   self.clients.claim();
+ });
+
+self.addEventListener('fetch', (event) => {
+  console.log('[ServiceWorker] Fetch', event.request.url);
+  // CODELAB: Add fetch event handler here.
+ event.respondWith(
+    caches.match(event.request)
+    .then(function(response) {
+      return response || fetchAndCache(event.request);
+    })
+  );
 });
 
-self.addEventListener('fetch', (evt) => {
-  console.log('[ServiceWorker] Fetch', evt.request.url);
-  // CODELAB: Add fetch event handler here.
-});
+function fetchAndCache(url) {
+  return fetch(url)
+  .then(function(response) {
+    // Check if we received a valid response
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return caches.open(CACHE_NAME)
+    .then(function(cache) {
+      cache.put(url, response.clone());
+      return response;
+    });
+  })
+  .catch(function(error) {
+    console.log('Request failed:', error);
+    // You could return a custom offline 404 page here
+  });
+}
