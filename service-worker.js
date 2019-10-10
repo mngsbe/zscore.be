@@ -3,10 +3,9 @@ const CACHE_NAME = 'zscore.be-v1.3.1';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
-  './',
+  '/',
   './index.html',
   './css/style.css',
-  './service-worker.js',
   './js/main.js',
   './js/lmsfuns.js',
   './js/install.js',
