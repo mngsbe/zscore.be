@@ -5,8 +5,8 @@
   "theme_color": "#004d99",
   "background_color": "#ffffff",
   "display": "standalone",
-  "Scope": "https://mngsbe.github.io/",
-  "start_url": "/zscore.be/index.html",
+  "Scope": "/",
+  "start_url": "/index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
