@@ -65,7 +65,7 @@ h5 {color: #bd4000; font-size:0.75em; font-weight:normal; margin-top:0.5em; marg
 #sex:checked + .container {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background:#b0c24a;
+  background:#9b870c;
 }
 
 #sex:checked + .container > * {
@@ -155,7 +155,8 @@ input[type=checkbox] {
   .container {
     width: 97%;
   }
-@media screen and (min-width: 410px) {
+@media screen and (min-width: 510px) {
   .container {
-    width: 400px;
+    width: 500px;
   }
+}
