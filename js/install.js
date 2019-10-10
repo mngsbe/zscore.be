@@ -12,14 +12,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
     }
     // Show the setup link
     installLink.style.display = "inline";
-//    installLink.disabled = false;
 });
 
 function install_pwa() {
     // Show the prompt
     deferredPrompt.prompt();
-//    installLink.disabled = true;
-    installLink.style.display = "none";
+//    installLink.style.display = "none";
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice
         .then((choiceResult) => {
@@ -29,6 +27,7 @@ function install_pwa() {
                 installLink.style.display = "none";
             } else {
                 console.log("z-score setup rejected");
+                installLink.style.display = "inline";
             }
             deferredPrompt = null;
         });
