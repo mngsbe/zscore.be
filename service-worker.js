@@ -21,10 +21,10 @@ const FILES_TO_CACHE = [
   'images/icons/icon-512x512.png'
 ];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', event => {
 //  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(cache => {
       console.log('[ServiceWorker] Caching page for offline use');
       return cache.addAll(FILES_TO_CACHE);
     })
@@ -33,11 +33,11 @@ self.addEventListener('install', (event) => {
 
 
 // Delete unused caches
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
+    caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.filter((cacheName) => {
+        cacheNames.filter(cacheName => {
           // Return true if you want to remove this cache,
           // but remember that caches are shared across
           // the whole origin
@@ -49,9 +49,9 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
+    caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
   );
