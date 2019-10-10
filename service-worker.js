@@ -1,8 +1,8 @@
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = 'zscore.be-v1.3.2';
+let CACHE_NAME = 'zscore.be-v1.3.2';
 
 // CODELAB: Add list of files to cache here.
-const FILES_TO_CACHE = [
+let FILES_TO_CACHE = [
   '/',
   'index.html',
   'css/style.css',
@@ -23,13 +23,15 @@ const FILES_TO_CACHE = [
 
 self.addEventListener('install', event => {
 //  self.skipWaiting();
+  console.log('[ServiceWorker] about to install');
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log('[ServiceWorker] Caching page for offline use');
       return cache.addAll(FILES_TO_CACHE);
     })
   );
-  console.log('[ServiceWorker] installed');
+  console.log('done...');
+
 });
 
 
