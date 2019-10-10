@@ -28,7 +28,8 @@ self.addEventListener('install', (event) => {
   // CODELAB: Precache static resources here.
   event.waitUntil(
     caches.open(CACHE_NAME)
-    .then(function(cache) {
+    .then((cache) => {
+      console.log('[ServiceWorker] Caching page for offline use');
       return cache.addAll(FILES_TO_CACHE);
     })
   );    
