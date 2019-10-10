@@ -1,5 +1,5 @@
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = 'zscore.be_v1.3';
+const CACHE_NAME = 'zscore.be-v1.3';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
