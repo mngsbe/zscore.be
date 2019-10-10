@@ -10,7 +10,15 @@ const FILES_TO_CACHE = [
   'js/lmsfuns.js',
   'js/install.js',
   'images/logo/kuleuven.svg',
-  'images/logo/vwvj.svg'
+  'images/logo/vwvj.svg',
+  'images/icons/icon-72x72.png',
+  'images/icons/icon-96x96.png',
+  'images/icons/icon-128x128.png',
+  'images/icons/icon-144x144.png',
+  'images/icons/icon-152x152.png',
+  'images/icons/icon-192x192.png',
+  'images/icons/icon-384x384.png',
+  'images/icons/icon-512x512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -21,6 +29,7 @@ self.addEventListener('install', event => {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
+  console.log('[ServiceWorker] installed');
 });
 
 
@@ -39,6 +48,8 @@ self.addEventListener('activate', event => {
       );
     })
   );
+  console.log('[ServiceWorker] activated');
+
 });
 
 self.addEventListener('fetch', event => {
@@ -47,4 +58,6 @@ self.addEventListener('fetch', event => {
       return response || fetch(event.request);
     })
   );
+  console.log('[ServiceWorker] fetched');
+
 });
