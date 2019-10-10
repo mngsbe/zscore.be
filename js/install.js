@@ -1,11 +1,11 @@
 let deferredPrompt; // Allows to show the install prompt
 let installLink;
 
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener('beforeinstallprompt', event => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
+    event.preventDefault();
     // Stash the event so it can be triggered later.
-    deferredPrompt = e;
+    deferredPrompt = event;
     // console.log("beforeinstallprompt fired");
     if (installLink == undefined) {
         installLink = document.getElementById("install_link");
