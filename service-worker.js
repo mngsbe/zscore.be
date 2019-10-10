@@ -1,5 +1,5 @@
 // CODELAB: Update cache names any time any of the cached files change.
-let CACHE_NAME = 'zscore.be-v1.3.3';
+let CACHE_NAME = 'zscore.be-v1.3.4';
 
 // CODELAB: Add list of files to cache here.
 let FILES_TO_CACHE = [
@@ -44,8 +44,9 @@ self.addEventListener('activate', event => {
           if (cacheName !== CACHE_NAME) {
             return caches.delete(cacheName);
           }
-        }));
-    });
+        })
+      );
+    })
   );
   console.log('[ServiceWorker] activated');
 });
