@@ -1,6 +1,5 @@
 const CACHE_NAME = 'zscore.be-v1.4';
 const FILES_TO_CACHE = [
-  '/',
   'index.html',
   'css/style.css',
   'js/main.js',
