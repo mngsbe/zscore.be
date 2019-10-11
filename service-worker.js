@@ -1,5 +1,6 @@
 const CACHE_NAME = 'zscore.be-v1.4';
 const FILES_TO_CACHE = [
+  '/',
   'index.html',
   'css/style.css',
   'js/main.js',
@@ -42,7 +43,6 @@ self.addEventListener('activate', event => {
 });
 
  self.addEventListener('fetch', event => {
-   console.log('[ServiceWorker] will fetch');
    event.respondWith(
      caches.open(CACHE_NAME).then( cache =>
      caches.match(event.request)).then( response => {
