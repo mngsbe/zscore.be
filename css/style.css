@@ -65,7 +65,7 @@ h5 {color: #bd4000; font-size:0.75em; font-weight:normal; margin-top:0.5em; marg
 #sex:checked + .container {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background:#ebf8c4;
+  background:#bbc7a0;
 }
 
 #sex:checked + .container > * {
